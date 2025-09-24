@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Rewards | VeriQPro</title>
+		<link
+			rel="icon"
+			type="image/x-icon"
+			href="https://businesspost.ng/wp-content/uploads/2024/10/Unilever-Nigeria-logo.jpg"
+		/>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link
+			href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+			rel="stylesheet"
+		/>
+		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			.reward-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+					0 10px 10px -5px rgba(0, 0, 0, 0.04);
+			}
+
+			.bg-unilever-lightblue {
+				background-color: #0068b33A;
+			}
+
+			.text-unilever-blue {
+				color: #0068b3;
+			}
+
+			.reward-filter.active,
+			.bg-unilever-blue {
+				background-color: #0068b3;
+				color: white;
+			}
+		</style>
+	</head>
+
+	<body class="font-sans bg-gray-50">
+		<!-- Navigation -->
+		<nav class="bg-white shadow-sm fixed w-full z-10">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="flex justify-between h-16">
+					<div class="flex items-center">
+						<div class="flex-shrink-0 flex items-center">
+							<img
+								class="h-8 w-auto"
+								src="https://businesspost.ng/wp-content/uploads/2024/10/Unilever-Nigeria-logo.jpg"
+								alt="Unilever Nigeria"
+							/>
+							<span
+								class="ml-3 text-xl font-heading font-bold text-unilever-blue"
+								>VeriQPro</span
+							>
+						</div>
+					</div>
+					<div
+						class="hidden md:ml-6 md:flex md:items-center md:space-x-8"
+					>
+						<a
+							href="index.html"
+							class="text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium"
+							>Home</a
+						>
+						<a
+							href="products.html"
+							class="text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium"
+							>Products</a
+						>
+						<a
+							href="scanQR.html"
+							class="text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium"
+							>Scan QR</a
+						>
+						<a
+							href="rewards.html"
+							class="text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-unilever-blue text-sm font-medium"
+							>Rewards</a
+						>
+						<a
+							href="dashboard.html"
+							class="text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium"
+							>Dashboard</a
+						>
+						<button
+							class="bg-unilever-blue text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-unilever-lightblue transition duration-200"
+							>Login</button
+						>
+					</div>
+					<div class="-mr-2 flex items-center md:hidden">
+						<button
+							type="button"
+							class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-unilever-blue"
+							aria-controls="mobile-menu"
+							aria-expanded="false"
+						>
+							<span class="sr-only">Open main menu</span>
+							<i data-feather="menu"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- Mobile menu -->
+			<div class="hidden md:hidden" id="mobile-menu">
+				<div class="pt-2 pb-3 space-y-1">
+					<a
+						href="index.html"
+						class="text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium"
+						>Home</a
+					>
+					<a
+						href="products.html"
+						class="text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium"
+						>Products</a
+					>
+					<a
+						href="scanQR.html"
+						class="text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium"
+						>Scan QR</a
+					>
+					<a
+						href="rewards.html"
+						class="bg-unilever-blue text-white block pl-3 pr-4 py-2 border-l-4 border-unilever-blue text-base font-medium"
+						>Rewards</a
+					>
+					<a
+						href="dashboard.html"
+						class="text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium"
+						>Dashboard</a
+					>
+					<button
+						class="w-full text-left bg-unilever-blue text-white block pl-3 pr-4 py-2 border-l-4 border-unilever-blue text-base font-medium"
+						>Login</button
+					>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Header -->
+		<div class="pt-24 pb-12 px-4 sm:px-6 lg:px-8 bg-white">
+			<div class="max-w-7xl mx-auto">
+				<div class="text-center">
+					<h1
+						class="text-4xl font-heading font-bold tracking-tight text-gray-900 sm:text-5xl"
+						data-aos="fade-up"
+						>Redeem Your Points</h1
+					>
+					<p
+						class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto"
+						data-aos="fade-up"
+						data-aos-delay="100"
+					>
+						Exchange your verification points for exciting rewards
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- Points Summary -->
+		<div class="bg-unilever-blue py-8 px-4 sm:px-6 lg:px-8">
+			<div class="max-w-7xl mx-auto">
+				<div
+					class="rounded-lg bg-white shadow-lg p-6"
+					data-aos="fade-up"
+				>
+					<div class="md:flex md:items-center md:justify-between">
+						<div class="flex-1 min-w-0">
+							<h2 class="text-2xl font-bold text-gray-900"
+								>Your Points Summary</h2
+							>
+							<p class="mt-1 text-sm text-gray-500"
+								>Earn more points by verifying more products</p
+							>
+						</div>
+						<div class="mt-4 flex md:mt-0 md:ml-4">
+							<div class="text-center">
+								<div
+									class="text-3xl font-bold text-unilever-blue"
+									>1,250</div
+								>
+								<div class="text-sm text-gray-500"
+									>Total Points</div
+								>
+							</div>
+						</div>
+					</div>
+					<div class="mt-6">
+						<div class="relative pt-1">
+							<div class="flex mb-2 items-center justify-between">
+								<div>
+									<span
+										class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-unilever-blue bg-unilever-lightblue"
+									>
+										Silver Tier
+									</span>
+								</div>
+								<div class="text-right">
+									<span
+										class="text-xs font-semibold inline-block text-unilever-blue"
+									>
+										750 pts to Gold
+									</span>
+								</div>
+							</div>
+							<div
+								class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-unilever-lightblue"
+							>
+								<div
+									style="width: 62%"
+									class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-unilever-blue"
+								></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Reward Filters -->
+		<div class="bg-gray-100 py-6 px-4 sm:px-6 lg:px-8">
+			<div class="max-w-7xl mx-auto">
+				<div class="flex flex-wrap justify-center gap-2">
+					<button
+						class="reward-filter active px-4 py-2 rounded-full text-sm font-medium transition duration-200"
+						data-category="all"
+						>All Rewards</button
+					>
+					<button
+						class="reward-filter px-4 py-2 rounded-full text-sm font-medium bg-white text-gray-700 hover:bg-gray-200 transition duration-200"
+						data-category="vouchers"
+						>Vouchers</button
+					>
+					<button
+						class="reward-filter px-4 py-2 rounded-full text-sm font-medium bg-white text-gray-700 hover:bg-gray-200 transition duration-200"
+						data-category="products"
+						>Products</button
+					>
+					<button
+						class="reward-filter px-4 py-2 rounded-full text-sm font-medium bg-white text-gray-700 hover:bg-gray-200 transition duration-200"
+						data-category="cashback"
+						>Cashback</button
+					>
+					<button
+						class="reward-filter px-4 py-2 rounded-full text-sm font-medium bg-white text-gray-700 hover:bg-gray-200 transition duration-200"
+						data-category="affordable"
+						>Under 500 pts</button
+					>
+				</div>
+			</div>
+		</div>
+
+		<div class="py-12 px-4 sm:px-6 lg:px-8">
+			<div class="max-w-7xl mx-auto">
+				<div
+					class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
+				>
+					<!-- Reward 1 -->
+					<div
+						class="reward-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out"
+						data-category="vouchers"
+						data-points="500"
+						data-aos="fade-up"
+					>
+						<div class="p-4">
+							<img
+								src="http://static.photos/retail/640x360/1"
+								alt="Shopping Voucher"
+								class="w-full h-48 object-cover rounded-lg"
+							/>
+						</div>
+						<div class="px-4 pb-4">
+							<div class="flex justify-between items-start">
+								<div>
+									<h3
+										class="text-lg font-medium text-gray-900"
+										>N5,000 Shopping Voucher</h3
+									>
+									<p class="mt-1 text-sm text-gray-500"
+										>Redeemable at major supermarkets</p
+									>
+								</div>
+								<span
+									class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-unilever-blue text-white"
+								>
+									500 pts
+								</span>
+							</div>
+							<div class="mt-4">
+								<button
+									class="w-full bg-unilever-blue text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-unilever-lightblue transition duration-200"
+								>
+									Redeem Now
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Reward 2 -->
+					<div
+						class="reward-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out"
+						data-category="products"
+						data-points="750"
+						data-aos="fade-up"
+						data-aos-delay="100"
+					>
+						<div class="p-4">
+							<img
+								src="http://static.photos/technology/640x360/2"
+								alt="Premium Product Bundle"
+								class="w-full h-48 object-cover rounded-lg"
+							/>
+						</div>
+						<div class="px-4 pb-4">
+							<div class="flex justify-between items-start">
+								<div>
+									<h3
+										class="text-lg font-medium text-gray-900"
+										>Premium Product Bundle</h3
+									>
+									<p class="mt-1 text-sm text-gray-500"
+										>Collection of Unilever's best
+										products</p
+									>
+								</div>
+								<span
+									class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-unilever-blue text-white"
+								>
+									750 pts
+								</span>
+							</div>
+							<div class="mt-4">
+								<button
+									class="w-full bg-unilever-blue text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-unilever-lightblue transition duration-200"
+								>
+									Redeem Now
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Reward 3 -->
+					<div
+						class="reward-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out"
+						data-category="cashback"
+						data-points="1000"
+						data-aos="fade-up"
+						data-aos-delay="200"
+					>
+						<div class="p-4">
+							<img
+								src="http://static.photos/finance/640x360/3"
+								alt="Cashback Reward"
+								class="w-full h-48 object-cover rounded-lg"
+							/>
+						</div>
+						<div class="px-4 pb-4">
+							<div class="flex justify-between items-start">
+								<div>
+									<h3
+										class="text-lg font-medium text-gray-900"
+										>N10,000 Cashback</h3
+									>
+									<p class="mt-1 text-sm text-gray-500"
+										>Direct transfer to your bank account</p
+									>
+								</div>
+								<span
+									class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-unilever-blue text-white"
+								>
+									1000 pts
+								</span>
+							</div>
+							<div class="mt-4">
+								<button
+									class="w-full bg-unilever-blue text-white px-4 py-2 rounded-md hover:bg-unilever-lightblue transition"
+									>Redeem Now</button
+								>
+							</div>
+						</div>
+					</div>
+
+					<!-- Reward 4 -->
+					<div
+						class="reward-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out"
+						data-category="vouchers"
+						data-points="300"
+						data-aos="fade-up"
+						data-aos-delay="300"
+					>
+						<div class="p-4">
+							<img
+								src="http://static.photos/food/640x360/4"
+								alt="Restaurant Voucher"
+								class="w-full h-48 object-cover rounded-lg"
+							/>
+						</div>
+						<div class="px-4 pb-4">
+							<div class="flex justify-between items-start">
+								<div>
+									<h3
+										class="text-lg font-medium text-gray-900"
+										>N3,000 Restaurant Voucher</h3
+									>
+									<p class="mt-1 text-sm text-gray-500"
+										>Enjoy a meal at partner restaurants</p
+									>
+								</div>
+								<span
+									class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-unilever-blue text-white"
+								>
+									300 pts
+								</span>
+							</div>
+							<div class="mt-4">
+								<button
+									class="w-full bg-unilever-blue text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-unilever-lightblue transition duration-200"
+								>
+									Redeem Now
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Reward 5 -->
+					<div
+						class="reward-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out"
+						data-category="products"
+						data-points="400"
+						data-aos="fade-up"
+						data-aos-delay="400"
+					>
+						<div class="p-4">
+							<img
+								src="http://static.photos/beauty/640x360/5"
+								alt="Beauty Kit"
+								class="w-full h-48 object-cover rounded-lg"
+							/>
+						</div>
+						<div class="px-4 pb-4">
+							<div class="flex justify-between items-start">
+								<div>
+									<h3
+										class="text-lg font-medium text-gray-900"
+										>Luxury Beauty Kit</h3
+									>
+									<p class="mt-1 text-sm text-gray-500"
+										>Premium personal care products</p
+									>
+								</div>
+								<span
+									class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-unilever-blue text-white"
+								>
+									400 pts
+								</span>
+							</div>
+							<div class="mt-4">
+								<button
+									class="w-full bg-unilever-blue text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-unilever-lightblue transition duration-200"
+								>
+									Redeem Now
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			AOS.init({
+				duration: 800,
+				easing: "ease-in-out",
+				once: true,
+			});
+
+			// Mobile menu toggle
+			document.addEventListener("DOMContentLoaded", function () {
+				const mobileMenuButton = document.querySelector(
+					'[aria-controls="mobile-menu"]'
+				);
+				const mobileMenu = document.getElementById("mobile-menu");
+
+				mobileMenuButton.addEventListener("click", function () {
+					const expanded =
+						this.getAttribute("aria-expanded") === "true";
+					this.setAttribute("aria-expanded", !expanded);
+					mobileMenu.classList.toggle("hidden");
+
+					// Toggle menu icon
+					const icon = this.querySelector("i");
+					if (expanded) {
+						feather.replace();
+					} else {
+						icon.setAttribute("data-feather", "x");
+						feather.replace();
+					}
+				});
+
+				// Category filter functionality
+				const filterButtons =
+					document.querySelectorAll(".category-filter");
+				filterButtons.forEach((button) => {
+					button.addEventListener("click", function () {
+						// Remove active class from all buttons
+						filterButtons.forEach((btn) =>
+							btn.classList.remove(
+								"active",
+								"bg-unilever-blue",
+								"text-white"
+							)
+						);
+						filterButtons.forEach((btn) =>
+							btn.classList.add("bg-white", "text-gray-700")
+						);
+
+						// Add active class to clicked button
+						this.classList.add(
+							"active",
+							"bg-unilever-blue",
+							"text-white"
+						);
+						this.classList.remove("bg-white", "text-gray-700");
+
+						// Filter products
+						const category = this.dataset.category;
+						const products =
+							document.querySelectorAll(".product-card");
+
+						products.forEach((product) => {
+							if (
+								category === "all" ||
+								product.dataset.category === category
+							) {
+								product.style.display = "block";
+							} else if (category === "highest") {
+								if (parseInt(product.dataset.points) >= 50) {
+									product.style.display = "block";
+								} else {
+									product.style.display = "none";
+								}
+							} else {
+								product.style.display = "none";
+							}
+						});
+					});
+				});
+
+				feather.replace();
+			});
+		</script>
+	</body>
+</html>

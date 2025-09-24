@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Scan QR | VeriQPro</title>
+		<link
+			rel="icon"
+			type="image/x-icon"
+			href="https://www.unilever.com.ng/content/dam/unilever/global/Images/logos/Unilever_logo_2014.svg"
+		/>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link
+			href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+			rel="stylesheet"
+		/>
+		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			.qr-scanner {
+				border: 3px dashed rgba(0, 104, 179, 0.3);
+				border-radius: 16px;
+			}
+			.verification-success {
+				animation: pulse 2s infinite;
+			}
+			@keyframes pulse {
+				0% {
+					box-shadow: 0 0 0 0 rgba(0, 166, 81, 0.4);
+				}
+				70% {
+					box-shadow: 0 0 0 15px rgba(0, 166, 81, 0);
+				}
+				100% {
+					box-shadow: 0 0 0 0 rgba(0, 166, 81, 0);
+				}
+			}
+		</style>
+	</head>
+	<body class="font-sans bg-gray-50">
+		<!-- Navigation -->
+		<nav class="bg-white shadow-sm fixed w-full z-10">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="flex justify-between h-16">
+					<div class="flex items-center">
+						<div class="flex-shrink-0 flex items-center">
+							<img
+								class="h-8 w-auto"
+								src="https://www.unilever.com.ng/content/dam/unilever/global/Images/logos/Unilever_logo_2014.svg"
+								alt="Unilever Nigeria"
+							/>
+							<span
+								class="ml-3 text-xl font-heading font-bold text-unilever-blue"
+								>VeriQPro</span
+							>
+						</div>
+					</div>
+					<div
+						class="hidden md:ml-6 md:flex md:items-center md:space-x-8"
+					>
+						<a
+							href="index.html"
+							class="text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium"
+							>Home</a
+						>
+						<a
+							href="products.html"
+							class="text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium"
+							>Products</a
+						>
+						<a
+							href="scanQR.html"
+							class="text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-unilever-blue text-sm font-medium"
+							>Scan QR</a
+						>
+						<a
+							href="rewards.html"
+							class="text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium"
+							>Rewards</a
+						>
+						<a
+							href="dashboard.html"
+							class="text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium"
+							>Dashboard</a
+						>
+						<button
+							class="bg-unilever-blue text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-unilever-lightblue transition duration-200"
+							>Login</button
+						>
+					</div>
+					<div class="-mr-2 flex items-center md:hidden">
+						<button
+							type="button"
+							class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-unilever-blue"
+							aria-controls="mobile-menu"
+							aria-expanded="false"
+						>
+							<span class="sr-only">Open main menu</span>
+							<i data-feather="menu"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- Mobile menu -->
+			<div class="hidden md:hidden" id="mobile-menu">
+				<div class="pt-2 pb-3 space-y-1">
+					<a
+						href="index.html"
+						class="text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium"
+						>Home</a
+					>
+					<a
+						href="products.html"
+						class="text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium"
+						>Products</a
+					>
+					<a
+						href="scanQR.html"
+						class="bg-unilever-blue text-white block pl-3 pr-4 py-2 border-l-4 border-unilever-blue text-base font-medium"
+						>Scan QR</a
+					>
+					<a
+						href="rewards.html"
+						class="text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium"
+						>Rewards</a
+					>
+					<a
+						href="dashboard.html"
+						class="text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium"
+						>Dashboard</a
+					>
+					<button
+						class="w-full text-left bg-unilever-blue text-white block pl-3 pr-4 py-2 border-l-4 border-unilever-blue text-base font-medium"
+						>Login</button
+					>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Header -->
+		<div class="pt-24 pb-12 px-4 sm:px-6 lg:px-8 bg-white">
+			<div class="max-w-7xl mx-auto">
+				<div class="text-center">
+					<h1
+						class="text-4xl font-heading font-bold tracking-tight text-gray-900 sm:text-5xl"
+						data-aos="fade-up"
+						>Verify Product Authenticity</h1
+					>
+					<p
+						class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto"
+						data-aos="fade-up"
+						data-aos-delay="100"
+					>
+						Scan the QR code on your Unilever product to check if
+						it's genuine
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- Scanner Section -->
+		<div class="py-12 px-4 sm:px-6 lg:px-8">
+			<div class="max-w-3xl mx-auto">
+				<div class="bg-white shadow-xl rounded-xl overflow-hidden">
+					<div class="p-6 sm:p-8">
+						<div class="flex items-center justify-between mb-6">
+							<h2
+								class="text-2xl font-heading font-semibold text-gray-900"
+								>QR Code Scanner</h2
+							>
+							<button
+								id="toggle-camera"
+								class="flex items-center text-sm text-unilever-blue hover:text-unilever-lightblue transition duration-200"
+							>
+								<i
+									data-feather="rotate-cw"
+									class="h-4 w-4 mr-1"
+								></i>
+								Switch Camera
+							</button>
+						</div>
+
+						<div
+							class="qr-scanner bg-gray-100 h-96 flex flex-col items-center justify-center rounded-lg relative"
+						>
+							<div
+								id="scanner-view"
+								class="w-full h-full flex items-center justify-center"
+							>
+								<div class="text-center">
+									<i
+										data-feather="camera"
+										class="h-12 w-12 text-gray-400 mx-auto"
+									></i>
+									<p class="mt-4 text-gray-500"
+										>Position the QR code within the frame
+										to scan</p
+									>
+									<button
+										id="start-scan"
+										class="mt-6 bg-unilever-blue text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-unilever-lightblue transition duration-200"
+									>
+										Start Scanning
+									</button>
+								</div>
+							</div>
+
+							<div
+								id="scan-result"
+								class="hidden w-full h-full p-6"
+							>
+								<div
+									class="verification-success bg-white rounded-lg shadow-md p-6 max-w-md mx-auto text-center"
+								>
+									<div
+										class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-unilever-green"
+									>
+										<i
+											data-feather="check"
+											class="h-6 w-6 text-white"
+										></i>
+									</div>
+									<h3
+										class="mt-3 text-lg font-medium text-gray-900"
+										>Authentic Product Verified</h3
+									>
+									<div class="mt-4">
+										<p class="text-sm text-gray-500"
+											>Product Name</p
+										>
+										<p class="font-medium text-lg"
+											>Knorr Chicken Cubes</p
+										>
+									</div>
+									<div class="mt-4 grid grid-cols-2 gap-4">
+										<div>
+											<p class="text-sm text-gray-500"
+												>Batch Number</p
+											>
+											<p class="font-medium"
+												>KN2023NG001</p
+											>
+										</div>
+										<div>
+											<p class="text-sm text-gray-500"
+												>Manufacture Date</p
+											>
+											<p class="font-medium"
+												>15 March 2023</p
+											>
+										</div>
+										<div>
+											<p class="text-sm text-gray-500"
+												>Expiry Date</p
+											>
+											<p class="font-medium"
+												>14 March 2025</p
+											>
+										</div>
+										<div>
+											<p class="text-sm text-gray-500"
+												>Points Earned</p
+											>
+											<p
+												class="text-xl font-bold text-unilever-yellow"
+												>+50</p
+											>
+										</div>
+									</div>
+									<button
+										id="scan-another"
+										class="mt-6 w-full bg-unilever-blue text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-unilever-lightblue transition duration-200"
+									>
+										Scan Another Product
+									</button>
+								</div>
+							</div>
+						</div>
+
+						<div class="mt-6">
+							<p class="text-sm text-gray-500"
+								>Don't have a QR code?
+								<a
+									href="#"
+									class="text-unilever-blue hover:text-unilever-lightblue"
+									>Enter code manually</a
+								></p
+							>
+						</div>
+					</div>
+				</div>
+
+				<div
+					class="mt-12 bg-white shadow-xl rounded-xl overflow-hidden"
+				>
+					<div class="p-6 sm:p-8">
+						<h2
+							class="text-2xl font-heading font-semibold text-gray-900 mb-6"
+							>Recent Scans</h2
+						>
+
+						<div class="space-y-4">
+							<div class="flex items-start p-4 border rounded-lg">
+								<div class="flex-shrink-0 mr-3">
+									<i
+										data-feather="check-circle"
+										class="h-5 w-5 text-unilever-green"
+									></i>
+								</div>
+								<div class="flex-1">
+									<div
+										class="flex items-center justify-between"
+									>
+										<p
+											class="text-sm font-medium text-gray-900"
+											>Knorr Chicken Cubes</p
+										>
+										<span
+											class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
+											>+50 pts</span
+										>
+									</div>
+									<p class="mt-1 text-xs text-gray-500"
+										>Today, 10:30 AM</p
+									>
+								</div>
+							</div>
+							<div class="flex items-start p-4 border rounded-lg">
+								<div class="flex-shrink-0 mr-3">
+									<i
+										data-feather="check-circle"
+										class="h-5 w-5 text-unilever-green"
+									></i>
+								</div>
+								<div class="flex-1">
+									<div
+										class="flex items-center justify-between"
+									>
+										<p
+											class="text-sm font-medium text-gray-900"
+											>Omo Detergent</p
+										>
+										<span
+											class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
+											>+60 pts</span
+										>
+									</div>
+									<p class="mt-1 text-xs text-gray-500"
+										>Yesterday, 4:15 PM</p
+									>
+								</div>
+							</div>
+							<div class="flex items-start p-4 border rounded-lg">
+								<div class="flex-shrink-0 mr-3">
+									<i
+										data-feather="check-circle"
+										class="h-5 w-5 text-unilever-green"
+									></i>
+								</div>
+								<div class="flex-1">
+									<div
+										class="flex items-center justify-between"
+									>
+										<p
+											class="text-sm font-medium text-gray-900"
+											>Lux Beauty Soap</p
+										>
+										<span
+											class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
+											>+30 pts</span
+										>
+									</div>
+									<p class="mt-1 text-xs text-gray-500"
+										>Yesterday, 1:45 PM</p
+									>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			AOS.init({
+				duration: 800,
+				easing: "ease-in-out",
+				once: true,
+			});
+
+			document.addEventListener("DOMContentLoaded", function () {
+				feather.replace();
+			});
+		</script>
+	</body>
+</html>

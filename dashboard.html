@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Dashboard | VeriQPro</title>
+		<link
+			rel="icon"
+			type="image/x-icon"
+			href="https://businesspost.ng/wp-content/uploads/2024/10/Unilever-Nigeria-logo.jpg"
+		/>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link
+			href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+			rel="stylesheet"
+		/>
+		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			.progress-ring__circle {
+				transition: stroke-dashoffset 0.35s;
+				transform: rotate(-90deg);
+				transform-origin: 50% 50%;
+			}
+		</style>
+	</head>
+	<body class="font-sans bg-gray-50">
+		<!-- Navigation -->
+		<nav class="bg-white shadow-sm fixed w-full z-10">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="flex justify-between h-16">
+					<div class="flex items-center">
+						<div class="flex-shrink-0 flex items-center">
+							<img
+								class="h-8 w-auto"
+								src="https://businesspost.ng/wp-content/uploads/2024/10/Unilever-Nigeria-logo.jpg"
+								alt="Unilever Nigeria"
+							/>
+							<span
+								class="ml-3 text-xl font-heading font-bold text-unilever-blue"
+								>VeriQPro</span
+							>
+						</div>
+					</div>
+					<div
+						class="hidden md:ml-6 md:flex md:items-center md:space-x-8"
+					>
+						<a
+							href="index.html"
+							class="text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium"
+							>Home</a
+						>
+						<a
+							href="products.html"
+							class="text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium"
+							>Products</a
+						>
+						<a
+							href="scanQR.html"
+							class="text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium"
+							>Scan QR</a
+						>
+						<a
+							href="rewards.html"
+							class="text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium"
+							>Rewards</a
+						>
+						<a
+							href="dashboard.html"
+							class="text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-unilever-blue text-sm font-medium"
+							>Dashboard</a
+						>
+						<button
+							class="bg-unilever-blue text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-unilever-lightblue transition duration-200"
+							>Logout</button
+						>
+					</div>
+					<div class="-mr-2 flex items-center md:hidden">
+						<button
+							type="button"
+							class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-unilever-blue"
+							aria-controls="mobile-menu"
+							aria-expanded="false"
+						>
+							<span class="sr-only">Open main menu</span>
+							<i data-feather="menu"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- Mobile menu -->
+			<div class="hidden md:hidden" id="mobile-menu">
+				<div class="pt-2 pb-3 space-y-1">
+					<a
+						href="index.html"
+						class="text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium"
+						>Home</a
+					>
+					<a
+						href="products.html"
+						class="text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium"
+						>Products</a
+					>
+					<a
+						href="scanQR.html"
+						class="text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium"
+						>Scan QR</a
+					>
+					<a
+						href="rewards.html"
+						class="text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium"
+						>Rewards</a
+					>
+					<a
+						href="dashboard.html"
+						class="bg-unilever-blue text-white block pl-3 pr-4 py-2 border-l-4 border-unilever-blue text-base font-medium"
+						>Dashboard</a
+					>
+					<button
+						class="w-full text-left bg-unilever-blue text-white block pl-3 pr-4 py-2 border-l-4 border-unilever-blue text-base font-medium"
+						>Logout</button
+					>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Dashboard Header -->
+		<div class="pt-24 pb-12 px-4 sm:px-6 lg:px-8 bg-white">
+			<div class="max-w-7xl mx-auto">
+				<div class="md:flex md:items-center md:justify-between">
+					<div class="flex-1 min-w-0">
+						<h1
+							class="text-3xl font-heading font-bold text-gray-900 sm:text-4xl"
+							data-aos="fade-up"
+							>Welcome back, John!</h1
+						>
+						<p
+							class="mt-2 text-lg text-gray-500"
+							data-aos="fade-up"
+							data-aos-delay="100"
+						>
+							Here's your verification activity and rewards
+							progress
+						</p>
+					</div>
+					<div
+						class="mt-4 flex md:mt-0 md:ml-4"
+						data-aos="fade-up"
+						data-aos-delay="200"
+					>
+						<button
+							type="button"
+							class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-unilever-blue"
+						>
+							<i data-feather="share-2" class="mr-2 h-4 w-4"></i>
+							Share
+						</button>
+						<button
+							type="button"
+							class="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-unilever-blue hover:bg-unilever-lightblue focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-unilever-blue"
+						>
+							<i data-feather="award" class="mr-2 h-4 w-4"></i>
+							Redeem Points
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Dashboard Content -->
+		<div class="py-6 px-4 sm:px-6 lg:px-8">
+			<div class="max-w-7xl mx-auto">
+				<div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+					<!-- Points Summary -->
+					<div
+						class="bg-white overflow-hidden shadow rounded-lg"
+						data-aos="fade-up"
+					>
+						<div class="px-4 py-5 sm:p-6">
+							<div class="flex items-center">
+								<div
+									class="flex-shrink-0 bg-unilever-blue rounded-md p-3"
+								>
+									<i
+										data-feather="award"
+										class="h-6 w-6 text-white"
+									></i>
+								</div>
+								<div class="ml-5 w-0 flex-1">
+									<dt
+										class="text-sm font-medium text-gray-500 truncate"
+									>
+										Total Points
+									</dt>
+									<dd class="flex items-baseline">
+										<div
+											class="text-2xl font-semibold text-gray-900"
+										>
+											1,250
+										</div>
+									</dd>
+								</div>
+							</div>
+							<div class="mt-6">
+								<div class="relative pt-1">
+									<div
+										class="flex mb-2 items-center justify-between"
+									>
+										<div>
+											<span
+												class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-unilever-blue bg-unilever-lightblue"
+											>
+												Progress
+											</span>
+										</div>
+										<div class="text-right">
+											<span
+												class="text-xs font-semibold inline-block text-unilever-blue"
+											>
+												62%
+											</span>
+										</div>
+									</div>
+									<div
+										class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-unilever-lightblue"
+									>
+										<div
+											style="width: 62%"
+											class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-unilever-blue"
+										></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Verification Progress -->
+					<div
+						class="bg-white overflow-hidden shadow rounded-lg"
+						data-aos="fade-up"
+						data-aos-delay="100"
+					>
+						<div class="px-4 py-5 sm:p-6">
+							<div class="flex items-center">
+								<div
+									class="flex-shrink-0 bg-green-500 rounded-md p-3"
+								>
+									<i
+										data-feather="check-circle"
+										class="h-6 w-6 text-white"
+									></i>
+								</div>
+								<div class="ml-5 w-0 flex-1">
+									<dt
+										class="text-sm font-medium text-gray-500 truncate"
+									>
+										Verified Products
+									</dt>
+									<dd class="flex items-baseline">
+										<div
+											class="text-2xl font-semibold text-gray-900"
+										>
+											24
+										</div>
+									</dd>
+								</div>
+							</div>
+							<div class="mt-6">
+								<div class="relative pt-1">
+									<div
+										class="flex mb-2 items-center justify-between"
+									>
+										<div>
+											<span
+												class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-green-600 bg-green-200"
+											>
+												This Month
+											</span>
+										</div>
+										<div class="text-right">
+											<span
+												class="text-xs font-semibold inline-block text-green-600"
+											>
+												+8
+											</span>
+										</div>
+									</div>
+									<div
+										class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-green-200"
+									>
+										<div
+											style="width: 40%"
+											class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-500"
+										></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Reward Tier -->
+					<div
+						class="bg-white overflow-hidden shadow rounded-lg"
+						data-aos="fade-up"
+						data-aos-delay="200"
+					>
+						<div class="px-4 py-5 sm:p-6">
+							<div class="flex items-center">
+								<div
+									class="flex-shrink-0 bg-purple-500 rounded-md p-3"
+								>
+									<i
+										data-feather="star"
+										class="h-6 w-6 text-white"
+									></i>
+								</div>
+								<div class="ml-5 w-0 flex-1">
+									<dt
+										class="text-sm font-medium text-gray-500 truncate"
+									>
+										Reward Tier
+									</dt>
+									<dd class="flex items-baseline">
+										<div
+											class="text-2xl font-semibold text-gray-900"
+										>
+											Silver
+										</div>
+									</dd>
+								</div>
+							</div>
+							<div class="mt-6">
+								<div class="relative pt-1">
+									<div
+										class="flex mb-2 items-center justify-between"
+									>
+										<div>
+											<span
+												class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-purple-600 bg-purple-200"
+											>
+												Next Tier
+											</span>
+										</div>
+										<div class="text-right">
+											<span
+												class="text-xs font-semibold inline-block text-purple-600"
+											>
+												750 pts to Gold
+											</span>
+										</div>
+									</div>
+									<div
+										class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-purple-200"
+									>
+										<div
+											style="width: 38%"
+											class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-purple-500"
+										></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Recent Activity -->
+				<div class="mt-8" data-aos="fade-up">
+					<h2 class="text-lg font-medium text-gray-900 mb-4"
+						>Recent Verification Activity</h2
+					>
+					<div class="bg-white shadow overflow-hidden sm:rounded-md">
+						<ul class="divide-y divide-gray-200">
+							<li>
+								<a href="#" class="block hover:bg-gray-50">
+									<div class="px-4 py-4 sm:px-6">
+										<div
+											class="flex items-center justify-between"
+										>
+											<p
+												class="text-sm font-medium text-unilever-blue truncate"
+											>
+												Knorr Chicken Cubes
+											</p>
+											<div
+												class="ml-2 flex-shrink-0 flex"
+											>
+												<p
+													class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
+												>
+													+50 pts
+												</p>
+											</div>
+										</div>
+										<div
+											class="mt-2 sm:flex sm:justify-between"
+										>
+											<div class="sm:flex">
+												<p
+													class="flex items-center text-sm text-gray-500"
+												>
+													<i
+														data-feather="calendar"
+														class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
+													></i>
+													Today, 10:30 AM
+												</p>
+											</div>
+											<div
+												class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0"
+											>
+												<i
+													data-feather="check-circle"
+													class="flex-shrink-0 mr-1.5 h-5 w-5 text-green-500"
+												></i>
+												Verified
+											</div>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="block hover:bg-gray-50">
+									<div class="px-4 py-4 sm:px-6">
+										<div
+											class="flex items-center justify-between"
+										>
+											<p
+												class="text-sm font-medium text-unilever-blue truncate"
+											>
+												Omo Detergent
+											</p>
+											<div
+												class="ml-2 flex-shrink-0 flex"
+											>
+												<p
+													class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
+												>
+													+60 pts
+												</p>
+											</div>
+										</div>
+										<div
+											class="mt-2 sm:flex sm:justify-between"
+										>
+											<div class="sm:flex">
+												<p
+													class="flex items-center text-sm text-gray-500"
+												>
+													<i
+														data-feather="calendar"
+														class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
+													></i>
+													Yesterday, 4:15 PM
+												</p>
+											</div>
+											<div
+												class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0"
+											>
+												<i
+													data-feather="check-circle"
+													class="flex-shrink-0 mr-1.5 h-5 w-5 text-green-500"
+												></i>
+												Verified
+											</div>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="block hover:bg-gray-50">
+									<div class="px-4 py-4 sm:px-6">
+										<div
+											class="flex items-center justify-between"
+										>
+											<p
+												class="text-sm font-medium text-unilever-blue truncate"
+											>
+												Lux Beauty Soap
+											</p>
+											<div
+												class="ml-2 flex-shrink-0 flex"
+											>
+												<p
+													class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
+												>
+													+30 pts
+												</p>
+											</div>
+										</div>
+										<div
+											class="mt-2 sm:flex sm:justify-between"
+										>
+											<div class="sm:flex">
+												<p
+													class="flex items-center text-sm text-gray-500"
+												>
+													<i
+														data-feather="calendar"
+														class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
+													></i>
+													Yesterday, 1:45 PM
+												</p>
+											</div>
+											<div
+												class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0"
+											>
+												<i
+													data-feather="check-circle"
+													class="flex-shrink-0 mr-1.5 h-5 w-5 text-green-500"
+												></i>
+												Verified
+											</div>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="#" class="block hover:bg-gray-50">
+									<div class="px-4 py-4 sm:px-6">
+										<div
+											class="flex items-center justify-between"
+										>
+											<p
+												class="text-sm font-medium text-unilever-blue truncate"
+											>
+												Blue Band Margarine
+											</p>
+											<div
+												class="ml-2 flex-shrink-0 flex"
+											>
+												<p
+													class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
+												>
+													+40 pts
+												</p>
+											</div>
+										</div>
+										<div
+											class="mt-2 sm:flex sm:justify-between"
+										>
+											<div class="sm:flex">
+												<p
+													class="flex items-center text-sm text-gray-500"
+												>
+													<i
+														data-feather="calendar"
+														class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400"
+													></i>
+													2 days ago
+												</p>
+											</div>
+											<div
+												class="mt-2 flex items-center text-sm text-gray-500 sm:mt-0"
+											>
+												<i
+													data-feather="check-circle"
+													class="flex-shrink-0 mr-1.5 h-5 w-5 text-green-500"
+												></i>
+												Verified
+											</div>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Product Categories -->
+				<div class="mt-8" data-aos="fade-up" data-aos-delay="100">
+					<h2 class="text-lg font-medium text-gray-900 mb-4"
+						>Your Verification by Category</h2
+					>
+					<div class="bg-white shadow rounded-lg overflow-hidden">
+						<div class="px-4 py-5 sm:p-6">
+							<div class="grid grid-cols-1 gap-5 sm:grid-cols-3">
+								<div class="flex items-center">
+									<div
+										class="flex-shrink-0 bg-red-500 rounded-md p-3"
+									>
+										<i
+											data-feather="coffee"
+											class="h-6 w-6 text-white"
+										></i>
+									</div>
+									<div class="ml-5 w-0 flex-1">
+										<dt
+											class="text-sm font-medium text-gray-500 truncate"
+										>
+											Food Products
+										</dt>
+										<dd class="flex items-baseline">
+											<div
+												class="text-xl font-semibold text-gray-900"
+											>
+												8
+											</div>
+											<div
+												class="ml-2 flex items-baseline text-sm font-semibold text-green-600"
+											>
+												<span class="sr-only"
+													>Increased by</span
+												>
+												2 this month
+											</div>
+										</dd>
+									</div>
+								</div>
+								<div class="flex items-center">
+									<div
+										class="flex-shrink-0 bg-blue-500 rounded-md p-3"
+									>
+										<i
+											data-feather="home"
+											class="h-6 w-6 text-white"
+										></i>
+									</div>
+									<div class="ml-5 w-0 flex-1">
+										<dt
+											class="text-sm font-medium text-gray-500 truncate"
+										>
+											Home Care
+										</dt>
+										<dd class="flex items-baseline">
+											<div
+												class="text-xl font-semibold text-gray-900"
+											>
+												7
+											</div>
+											<div
+												class="ml-2 flex items-baseline text-sm font-semibold text-green-600"
+											>
+												<span class="sr-only"
+													>Increased by</span
+												>
+												3 this month
+											</div>
+										</dd>
+									</div>
+								</div>
+								<div class="flex items-center">
+									<div
+										class="flex-shrink-0 bg-purple-500 rounded-md p-3"
+									>
+										<i
+											data-feather="user"
+											class="h-6 w-6 text-white"
+										></i>
+									</div>
+									<div class="ml-5 w-0 flex-1">
+										<dt
+											class="text-sm font-medium text-gray-500 truncate"
+										>
+											Personal Care
+										</dt>
+										<dd class="flex items-baseline">
+											<div
+												class="text-xl font-semibold text-gray-900"
+											>
+												9
+											</div>
+											<div
+												class="ml-2 flex items-baseline text-sm font-semibold text-green-600"
+											>
+												<span class="sr-only"
+													>Increased by</span
+												>
+												3 this month
+											</div>
+										</dd>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<footer class="bg-gray-800">
+			<div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+				<div class="grid grid-cols-2 gap-8 md:grid-cols-4">
+					<div>
+						<h3
+							class="text-sm font-semibold text-gray-400 tracking-wider uppercase"
+							>Products</h3
+						>
+						<ul class="mt-4 space-y-4">
+							<li
+								><a
+									href="#"
+									class="text-base text-gray-300 hover:text-white"
+									>Food Products</a
+								></li
+							>
+							<li
+								><a
+									href="#"
+									class="text-base text-gray-300 hover:text-white"
+									>Home Care</a
+								></li
+							>
+							<li
+								><a
+									href="#"
+									class="text-base text-gray-300 hover:text-white"
+									>Personal Care</a
+								></li
+							>
+							<li
+								><a
+									href="#"
+									class="text-base text-gray-300 hover:text-white"
+									>View All</a
+								></li
+							>
+						</ul>
+					</div>
+					<div>
+						<h3
+							class="text-sm font-semibold text-gray-400 tracking-wider uppercase"
+							>Company</h3
+						>
+						<ul class="mt-4 space-y-4">
+							<li
+								><a
+									href="#"
+									class="text-base text-gray-300 hover:text-white"
+									>About</a
+								></li
+							>
+							<li
+								><a
+									href="#"
+									class="text-base text-gray-300 hover:text-white"
+									>Blog</a
+								></li
+							>
+							<li
+								><a
+									href="#"
+									class="text-base text-gray-300 hover:text-white"
+									>Careers</a
+								></li
+							>
+							<li
+								><a
+									href="#"
+									class="text-base text-gray-300 hover:text-white"
+									>Partners</a
+								></li
+							>
+						</ul>
+					</div>
+					<div>
+						<h3
+							class="text-sm font-semibold text-gray-400 tracking-wider uppercase"
+							>Legal</h3
+						>
+						<ul class="mt-4 space-y-4">
+							<li
+								><a
+									href="#"
+									class="text-base text-gray-300 hover:text-white"
+									>Privacy</a
+								></li
+							>
+							<li
+								><a
+									href="#"
+									class="text-base text-gray-300 hover:text-white"
+									>Terms</a
+								></li
+							>
+							<li
+								><a
+									href="#"
+									class="text-base text-gray-300 hover:text-white"
+									>Cookie Policy</a
+								></li
+							>
+							<li
+								><a
+									href="#"
+									class="text-base text-gray-300 hover:text-white"
+									>GDPR</a
+								></li
+							>
+						</ul>
+					</div>
+					<div>
+						<h3
+							class="text-sm font-semibold text-gray-400 tracking-wider uppercase"
+							>Connect</h3
+						>
+						<ul class="mt-4 space-y-4">
+							<li
+								><a
+									href="#"
+									class="text-base text-gray-300 hover:text-white"
+									>Contact Us</a
+								></li
+							>
+							<li
+								><a
+									href="#"
+									class="text-base text-gray-300 hover:text-white"
+									>Twitter</a
+								></li
+							>
+							<li
+								><a
+									href="#"
+									class="text-base text-gray-300 hover:text-white"
+									>Facebook</a
+								></li
+							>
+							<li
+								><a
+									href="#"
+									class="text-base text-gray-300 hover:text-white"
+									>Instagram</a
+								></li
+							>
+						</ul>
+					</div>
+				</div>
+				<div class="mt-12 border-t border-gray-700 pt-8">
+					<div class="md:flex md:items-center md:justify-between">
+						<div class="flex space-x-6 md:order-2">
+							<a
+								href="#"
+								class="text-gray-400 hover:text-gray-300"
+							>
+								<i data-feather="facebook" class="h-6 w-6"></i>
+							</a>
+							<a
+								href="#"
+								class="text-gray-400 hover:text-gray-300"
+							>
+								<i data-feather="instagram" class="h-6 w-6"></i>
+							</a>
+							<a
+								href="#"
+								class="text-gray-400 hover:text-gray-300"
+							>
+								<i data-feather="twitter" class="h-6 w-6"></i>
+							</a>
+							<a
+								href="#"
+								class="text-gray-400 hover:text-gray-300"
+							>
+								<i data-feather="linkedin" class="h-6 w-6"></i>
+							</a>
+						</div>
+						<p
+							class="mt-8 text-base text-gray-400 md:mt-0 md:order-1"
+						>
+							&copy; 2025 VeriQPro by Unilever Nigeria. All rights
+							reserved.
+						</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<script>
+			AOS.init({
+				duration: 800,
+				easing: "ease-in-out",
+				once: true,
+			});
+
+			// Mobile menu toggle
+			document.addEventListener("DOMContentLoaded", function () {
+				const mobileMenuButton = document.querySelector(
+					'[aria-controls="mobile-menu"]'
+				);
+				const mobileMenu = document.getElementById("mobile-menu");
+
+				mobileMenuButton.addEventListener("click", function () {
+					const expanded =
+						this.getAttribute("aria-expanded") === "true";
+					this.setAttribute("aria-expanded", !expanded);
+					mobileMenu.classList.toggle("hidden");
+
+					// Toggle menu icon
+					const icon = this.querySelector("i");
+					if (expanded) {
+						feather.replace();
+					} else {
+						icon.setAttribute("data-feather", "x");
+						feather.replace();
+					}
+				});
+
+				feather.replace();
+			});
+		</script>
+	</body>
+</html>

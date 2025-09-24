@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>VeriQPro | Authentic Unilever Products</title>
+		<link
+			rel="icon"
+			type="image/x-icon"
+			href="https://www.unilever.com.ng/content/dam/unilever/global/Images/logos/Unilever_logo_2014.svg"
+		/>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link
+			href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+			rel="stylesheet"
+		/>
+		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+		<script src="https://unpkg.com/feather-icons"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<script>
+			tailwind.config = {
+				theme: {
+					extend: {
+						fontFamily: {
+							sans: ["Inter", "sans-serif"],
+							heading: ["Space Grotesk", "sans-serif"],
+						},
+						colors: {
+							unilever: {
+								blue: "#0068B3",
+								lightblue: "#00A8E8",
+								green: "#00A651",
+								yellow: "#FFCD00",
+								red: "#E31937",
+							},
+						},
+					},
+				},
+			};
+		</script>
+		<style>
+			.hero-gradient {
+				background: linear-gradient(
+					135deg,
+					rgba(0, 104, 179, 0.9) 0%,
+					rgba(0, 168, 232, 0.9) 100%
+				);
+			}
+			.qr-scanner {
+				border: 3px dashed rgba(255, 255, 255, 0.3);
+				border-radius: 16px;
+			}
+			.product-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+					0 10px 10px -5px rgba(0, 0, 0, 0.04);
+			}
+			.stats-card {
+				backdrop-filter: blur(10px);
+				background: rgba(255, 255, 255, 0.1);
+			}
+		</style>
+	</head>
+	<body class="font-sans bg-gray-50">
+		<!-- Navigation -->
+		<nav class="bg-white shadow-sm fixed w-full z-10">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="flex justify-between h-16">
+					<div class="flex items-center">
+						<div class="flex-shrink-0 flex items-center">
+							<img
+								class="h-8 w-auto"
+								src="https://businesspost.ng/wp-content/uploads/2024/10/Unilever-Nigeria-logo.jpg"
+								alt="Unilever Nigeria"
+							/>
+							<span class="ml-3 text-xl font-heading font-bold"
+								>VeriQPro</span
+							>
+						</div>
+					</div>
+					<div
+						class="hidden md:ml-6 md:flex md:items-center md:space-x-8"
+					>
+						<a
+							href="#"
+							class="text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-unilever-blue text-sm font-medium"
+							>Home</a
+						>
+						<a
+							href="products.html"
+							class="text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium"
+							>Products</a
+						>
+						<a
+							href="scanQR.html"
+							class="text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium"
+							>Scan QR</a
+						>
+						<a
+							href="rewards.html"
+							class="text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium"
+							>Rewards</a
+						>
+						<a
+							href="dashboard.html"
+							class="text-gray-500 hover:text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 border-transparent hover:border-gray-300 text-sm font-medium"
+							>Dashboard</a
+						>
+						<button
+							class="bg-unilever-blue text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-unilever-lightblue transition duration-200"
+							>Login</button
+						>
+					</div>
+					<div class="-mr-2 flex items-center md:hidden">
+						<button
+							type="button"
+							class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-unilever-blue"
+							aria-controls="mobile-menu"
+							aria-expanded="false"
+						>
+							<span class="sr-only">Open main menu</span>
+							<i data-feather="menu"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- Mobile menu -->
+			<div class="hidden md:hidden" id="mobile-menu">
+				<div class="pt-2 pb-3 space-y-1">
+					<a
+						href="#"
+						class="bg-unilever-blue text-white block pl-3 pr-4 py-2 border-l-4 border-unilever-blue text-base font-medium"
+						>Home</a
+					>
+					<a
+						href="products.html"
+						class="text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium"
+						>Products</a
+					>
+					<a
+						href="scanQR.html"
+						class="text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium"
+						>Scan QR</a
+					>
+					<a
+						href="rewards.html"
+						class="text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium"
+						>Rewards</a
+					>
+					<a
+						href="dashboard.html"
+						class="text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium"
+						>Dashboard</a
+					>
+					<button
+						class="w-full text-left bg-unilever-blue text-white block pl-3 pr-4 py-2 border-l-4 border-unilever-blue text-base font-medium"
+						>Login</button
+					>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Hero Section -->
+		<div class="hero-gradient pt-24 pb-32 px-4 sm:px-6 lg:px-8 text-white">
+			<div class="max-w-7xl mx-auto">
+				<div class="md:flex md:items-center md:justify-between">
+					<div class="md:w-1/2" data-aos="fade-right">
+						<h1
+							class="text-4xl font-heading font-bold tracking-tight sm:text-5xl lg:text-6xl mb-6"
+							>Authenticate Unilever Products with Confidence</h1
+						>
+						<p class="text-xl text-gray-100 mb-8"
+							>VeriQPro uses advanced QR technology to verify
+							product authenticity, combat counterfeiting, and
+							reward loyal customers.</p
+						>
+						<div class="flex space-x-4">
+							<a
+								href="#demo"
+								class="bg-white text-unilever-blue px-6 py-3 rounded-md text-lg font-medium hover:bg-gray-100 transition duration-200"
+								>See Demo</a
+							>
+							<a
+								href="scanQR.html"
+								class="border-2 border-white text-white px-6 py-3 rounded-md text-lg font-medium hover:bg-white hover:text-unilever-blue transition duration-200"
+								>Scan QR Code</a
+							>
+						</div>
+					</div>
+					<div class="hidden md:block md:w-1/2" data-aos="fade-left">
+						<div class="relative">
+							<img
+								src="https://sdmntprwestus.oaiusercontent.com/files/00000000-e4ac-6230-a746-f0c830e6e477/raw?se=2025-09-24T15%3A33%3A27Z&sp=r&sv=2024-08-04&sr=b&scid=d513d1cb-3d29-590d-91d4-d111f84c7789&skoid=c156db82-7a33-468f-9cdd-06af263ceec8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-09-23T22%3A35%3A24Z&ske=2025-09-24T22%3A35%3A24Z&sks=b&skv=2024-08-04&sig=%2BuDiXJaDaMllFrfFlNOwJzazs8IDkdSV/JNhdZDUXDg%3D"
+								alt="Unilever Products"
+								class="rounded-xl shadow-2xl"
+							/>
+							<div
+								class="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-lg"
+							>
+								<img
+									src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://veriqpro.com/verify/UN12345678"
+									alt="Sample QR Code"
+									class="h-32 w-32"
+								/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Stats Section -->
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16">
+			<div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+				<div
+					class="stats-card bg-white overflow-hidden shadow rounded-lg"
+					data-aos="fade-up"
+					data-aos-delay="100"
+				>
+					<div class="px-4 py-5 sm:p-6">
+						<div class="flex items-center">
+							<div
+								class="flex-shrink-0 bg-unilever-blue rounded-md p-3"
+							>
+								<i
+									data-feather="shield"
+									class="h-6 w-6 text-white"
+								></i>
+							</div>
+							<div class="ml-5 w-0 flex-1">
+								<dt
+									class="text-sm font-medium text-gray-500 truncate"
+									>Products Protected</dt
+								>
+								<dd class="flex items-baseline">
+									<div
+										class="text-2xl font-semibold text-gray-900"
+										>1.2M+</div
+									>
+								</dd>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					class="stats-card bg-white overflow-hidden shadow rounded-lg"
+					data-aos="fade-up"
+					data-aos-delay="200"
+				>
+					<div class="px-4 py-5 sm:p-6">
+						<div class="flex items-center">
+							<div
+								class="flex-shrink-0 bg-unilever-green rounded-md p-3"
+							>
+								<i
+									data-feather="check-circle"
+									class="h-6 w-6 text-white"
+								></i>
+							</div>
+							<div class="ml-5 w-0 flex-1">
+								<dt
+									class="text-sm font-medium text-gray-500 truncate"
+									>Verified Scans</dt
+								>
+								<dd class="flex items-baseline">
+									<div
+										class="text-2xl font-semibold text-gray-900"
+										>850K+</div
+									>
+								</dd>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					class="stats-card bg-white overflow-hidden shadow rounded-lg"
+					data-aos="fade-up"
+					data-aos-delay="300"
+				>
+					<div class="px-4 py-5 sm:p-6">
+						<div class="flex items-center">
+							<div
+								class="flex-shrink-0 bg-unilever-yellow rounded-md p-3"
+							>
+								<i
+									data-feather="award"
+									class="h-6 w-6 text-white"
+								></i>
+							</div>
+							<div class="ml-5 w-0 flex-1">
+								<dt
+									class="text-sm font-medium text-gray-500 truncate"
+									>Rewards Claimed</dt
+								>
+								<dd class="flex items-baseline">
+									<div
+										class="text-2xl font-semibold text-gray-900"
+										>120K+</div
+									>
+								</dd>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div
+					class="stats-card bg-white overflow-hidden shadow rounded-lg"
+					data-aos="fade-up"
+					data-aos-delay="400"
+				>
+					<div class="px-4 py-5 sm:p-6">
+						<div class="flex items-center">
+							<div
+								class="flex-shrink-0 bg-unilever-red rounded-md p-3"
+							>
+								<i
+									data-feather="alert-triangle"
+									class="h-6 w-6 text-white"
+								></i>
+							</div>
+							<div class="ml-5 w-0 flex-1">
+								<dt
+									class="text-sm font-medium text-gray-500 truncate"
+									>Counterfeits Detected</dt
+								>
+								<dd class="flex items-baseline">
+									<div
+										class="text-2xl font-semibold text-gray-900"
+										>15K+</div
+									>
+								</dd>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Demo Section -->
+		<div id="demo" class="py-16 bg-gray-50 overflow-hidden">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="text-center mb-16">
+					<h2
+						class="text-3xl font-heading font-bold text-gray-900 sm:text-4xl"
+						data-aos="fade-up"
+						>See VeriQPro in Action</h2
+					>
+					<p
+						class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto"
+						data-aos="fade-up"
+						data-aos-delay="100"
+					>
+						From product registration to consumer verification - our
+						seamless process ensures authenticity at every step.
+					</p>
+				</div>
+
+				<div class="relative">
+					<!-- Process Steps -->
+					<div
+						class="hidden lg:block absolute top-0 left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gray-200"
+					></div>
+
+					<!-- Step 1 -->
+					<div class="relative mb-16" data-aos="fade-right">
+						<div class="lg:flex items-center">
+							<div class="lg:w-1/2 lg:pr-12">
+								<div class="bg-white p-6 rounded-xl shadow-md">
+									<div class="flex items-center mb-4">
+										<div
+											class="flex-shrink-0 h-10 w-10 rounded-full bg-unilever-blue flex items-center justify-center text-white font-bold"
+											>1</div
+										>
+										<h3
+											class="ml-4 text-xl font-heading font-semibold text-gray-900"
+											>Product Registration</h3
+										>
+									</div>
+									<p class="text-gray-600">
+										Unilever Nigeria registers products in
+										the VeriQPro system with manufacturing
+										details, batch numbers, and expiration
+										dates.
+									</p>
+									<div class="mt-4">
+										<img
+											src="https://www.unilever.com/Images/unilever-factory_tcm244-534808_en.jpg"
+											alt="Product Registration"
+											class="rounded-lg shadow-sm"
+										/>
+									</div>
+								</div>
+							</div>
+							<div class="mt-8 lg:mt-0 lg:w-1/2 lg:pl-12">
+								<div class="bg-white p-6 rounded-xl shadow-md">
+									<div class="flex items-center mb-4">
+										<div
+											class="flex-shrink-0 h-10 w-10 rounded-full bg-unilever-blue flex items-center justify-center text-white font-bold"
+											>2</div
+										>
+										<h3
+											class="ml-4 text-xl font-heading font-semibold text-gray-900"
+											>QR Code Generation</h3
+										>
+									</div>
+									<p class="text-gray-600">
+										The system generates unique, encrypted
+										QR codes for each product unit with
+										tamper-proof security features.
+									</p>
+									<div class="mt-4 flex justify-center">
+										<img
+											src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://veriqpro.com/verify/UN12345678"
+											alt="QR Code"
+											class="h-40 w-40"
+										/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Step 3 -->
+					<div class="relative mb-16" data-aos="fade-left">
+						<div class="lg:flex items-center">
+							<div class="lg:w-1/2 lg:pr-12">
+								<div class="bg-white p-6 rounded-xl shadow-md">
+									<div class="flex items-center mb-4">
+										<div
+											class="flex-shrink-0 h-10 w-10 rounded-full bg-unilever-blue flex items-center justify-center text-white font-bold"
+											>3</div
+										>
+										<h3
+											class="ml-4 text-xl font-heading font-semibold text-gray-900"
+											>Product Distribution</h3
+										>
+									</div>
+									<p class="text-gray-600">
+										Products with VeriQPro QR codes are
+										distributed to retail outlets across
+										Nigeria, ready for consumer purchase.
+									</p>
+									<div class="mt-4">
+										<img
+											src="https://www.unilever.com/Images/unilever-distribution_tcm244-534809_en.jpg"
+											alt="Product Distribution"
+											class="rounded-lg shadow-sm"
+										/>
+									</div>
+								</div>
+							</div>
+							<div class="mt-8 lg:mt-0 lg:w-1/2 lg:pl-12">
+								<div class="bg-white p-6 rounded-xl shadow-md">
+									<div class="flex items-center mb-4">
+										<div
+											class="flex-shrink-0 h-10 w-10 rounded-full bg-unilever-blue flex items-center justify-center text-white font-bold"
+											>4</div
+										>
+										<h3
+											class="ml-4 text-xl font-heading font-semibold text-gray-900"
+											>Consumer Verification</h3
+										>
+									</div>
+									<p class="text-gray-600">
+										Customers scan the QR code using our web
+										interface to verify product authenticity
+										and earn rewards.
+									</p>
+									<div class="mt-4">
+										<div
+											class="qr-scanner bg-gray-100 h-48 flex items-center justify-center rounded-lg"
+										>
+											<div class="text-center">
+												<i
+													data-feather="camera"
+													class="h-12 w-12 text-gray-400 mx-auto"
+												></i>
+												<p class="mt-2 text-gray-500"
+													>Scan QR Code</p
+												>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Step 5 -->
+					<div class="relative" data-aos="fade-right">
+						<div class="lg:mx-auto lg:w-2/3">
+							<div class="bg-white p-6 rounded-xl shadow-md">
+								<div class="flex items-center mb-4">
+									<div
+										class="flex-shrink-0 h-10 w-10 rounded-full bg-unilever-blue flex items-center justify-center text-white font-bold"
+										>5</div
+									>
+									<h3
+										class="ml-4 text-xl font-heading font-semibold text-gray-900"
+										>Verification Results</h3
+									>
+								</div>
+								<p class="text-gray-600">
+									Instant verification shows product details
+									and authenticity status, while rewarding
+									customers with points.
+								</p>
+								<div class="mt-6 bg-gray-50 p-4 rounded-lg">
+									<div class="flex items-start">
+										<div class="flex-shrink-0">
+											<i
+												data-feather="check-circle"
+												class="h-8 w-8 text-unilever-green"
+											></i>
+										</div>
+										<div class="ml-3">
+											<h4
+												class="text-lg font-medium text-gray-900"
+												>Authentic Product Verified</h4
+											>
+											<div
+												class="mt-2 grid grid-cols-2 gap-4"
+											>
+												<div>
+													<p
+														class="text-sm text-gray-500"
+														>Product Name</p
+													>
+													<p class="font-medium"
+														>Knorr Chicken Cubes</p
+													>
+												</div>
+												<div>
+													<p
+														class="text-sm text-gray-500"
+														>Batch Number</p
+													>
+													<p class="font-medium"
+														>KN2023NG001</p
+													>
+												</div>
+												<div>
+													<p
+														class="text-sm text-gray-500"
+														>Manufacture Date</p
+													>
+													<p class="font-medium"
+														>15 March 2023</p
+													>
+												</div>
+												<div>
+													<p
+														class="text-sm text-gray-500"
+														>Expiry Date</p
+													>
+													<p class="font-medium"
+														>14 March 2025</p
+													>
+												</div>
+											</div>
+											<div class="mt-4">
+												<p class="text-sm text-gray-500"
+													>Points Earned</p
+												>
+												<p
+													class="text-2xl font-bold text-unilever-yellow"
+													>+50</p
+												>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Featured Products -->
+		<div class="py-16 bg-white">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="text-center mb-12">
+					<h2
+						class="text-3xl font-heading font-bold text-gray-900 sm:text-4xl"
+						data-aos="fade-up"
+						>Protected Unilever Products</h2
+					>
+					<p
+						class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto"
+						data-aos="fade-up"
+						data-aos-delay="100"
+					>
+						Scan these authentic Unilever Nigeria products to verify
+						and earn rewards
+					</p>
+				</div>
+
+				<div
+					class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+				>
+					<!-- Product 1 -->
+					<div
+						class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out"
+						data-category="food"
+						data-points="50"
+						data-aos="fade-up"
+					>
+						<div class="p-4">
+							<img
+								src="http://beeolafoods.com/cdn/shop/files/FullSizeRender_312490d1-cff6-4c7d-b472-aac5d63c39bc.jpg?v=1749492969"
+								alt="Knorr Cubes"
+								class="w-full h-48 object-contain"
+							/>
+						</div>
+						<div class="px-4 pb-4">
+							<h3 class="text-lg font-medium text-gray-900"
+								>Knorr Chicken Cubes</h3
+							>
+							<p class="mt-1 text-sm text-gray-500">60g Pack</p>
+							<div class="mt-3 flex justify-between items-center">
+								<span
+									class="text-sm font-medium text-unilever-blue"
+									>50 Points</span
+								>
+								<img
+									src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https://veriqpro.com/verify/KN12345678"
+									alt="QR Code"
+									class="h-10 w-10"
+								/>
+							</div>
+						</div>
+					</div>
+
+					<!-- Product 2 -->
+					<div
+						class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out"
+						data-category="food"
+						data-points="40"
+						data-aos="fade-up"
+						data-aos-delay="100"
+					>
+						<div class="p-4">
+							<img
+								src="http://images.squarespace-cdn.com/content/v1/60d8d9ee1a52ec4669cc8fd1/1642862183054-Z5E4CANKCPCZ25PU4N43/DAM+Products+Blue+Band+Butter+Nigeria+.png"
+								alt="Blue Band"
+								class="w-full h-48 object-contain"
+							/>
+						</div>
+						<div class="px-4 pb-4">
+							<h3 class="text-lg font-medium text-gray-900"
+								>Blue Band Margarine</h3
+							>
+							<p class="mt-1 text-sm text-gray-500">450g Tub</p>
+							<div class="mt-3 flex justify-between items-center">
+								<span
+									class="text-sm font-medium text-unilever-blue"
+									>40 Points</span
+								>
+								<img
+									src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https://veriqpro.com/verify/BB12345678"
+									alt="QR Code"
+									class="h-10 w-10"
+								/>
+							</div>
+						</div>
+					</div>
+
+					<!-- Product 3 -->
+					<div
+						class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out"
+						data-category="personal"
+						data-points="30"
+						data-aos="fade-up"
+						data-aos-delay="200"
+					>
+						<div class="p-4">
+							<img
+								src="http://vovidastore.com/cdn/shop/products/LuxSoftCaressBarSoap170g.jpg?v=1644782696"
+								alt="Lux Soap"
+								class="w-full h-48 object-contain"
+							/>
+						</div>
+						<div class="px-4 pb-4">
+							<h3 class="text-lg font-medium text-gray-900"
+								>Lux Beauty Soap</h3
+							>
+							<p class="mt-1 text-sm text-gray-500">90g Bar</p>
+							<div class="mt-3 flex justify-between items-center">
+								<span
+									class="text-sm font-medium text-unilever-blue"
+									>30 Points</span
+								>
+								<img
+									src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https://veriqpro.com/verify/LX12345678"
+									alt="QR Code"
+									class="h-10 w-10"
+								/>
+							</div>
+						</div>
+					</div>
+
+					<!-- Product 4 -->
+					<div
+						class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out"
+						data-category="home"
+						data-points="60"
+						data-aos="fade-up"
+						data-aos-delay="300"
+					>
+						<div class="p-4">
+							<img
+								src="https://www.omo.com/images/h0nadbhvm6m4/6dEbn2kuZNodWOoT67BKj/dc486ebe4a6baa6ff62965c74c54a538/NjIyMTE1NTEzMTIwMS4wMV9fMV8ucG5n/1100w-1100h/omo-active-auto-powder.jpg"
+								alt="Omo Detergent"
+								class="w-full h-48 object-contain"
+							/>
+						</div>
+						<div class="px-4 pb-4">
+							<h3 class="text-lg font-medium text-gray-900"
+								>Omo Detergent</h3
+							>
+							<p class="mt-1 text-sm text-gray-500">1kg Pack</p>
+							<div class="mt-3 flex justify-between items-center">
+								<span
+									class="text-sm font-medium text-unilever-blue"
+									>60 Points</span
+								>
+								<img
+									src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https://veriqpro.com/verify/OM12345678"
+									alt="QR Code"
+									class="h-10 w-10"
+								/>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="mt-10 text-center">
+					<a
+						href="products.html"
+						class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-unilever-blue hover:bg-unilever-lightblue transition duration-200"
+					>
+						View All Products
+						<i data-feather="arrow-right" class="ml-2 h-4 w-4"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- CTA Section -->
+		<div class="bg-unilever-blue">
+			<div
+				class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between"
+			>
+				<h2
+					class="text-3xl font-heading font-extrabold tracking-tight text-white sm:text-4xl"
+				>
+					<span class="block"
+						>Ready to verify your Unilever products?</span
+					>
+					<span class="block text-unilever-yellow"
+						>Scan now and earn rewards!</span
+					>
+				</h2>
+				<div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+					<div class="inline-flex rounded-md shadow">
+						<a
+							href="scanQR.html"
+							class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-unilever-blue bg-white hover:bg-gray-50 transition duration-200"
+						>
+							Scan QR Code
+							<i data-feather="camera" class="ml-2 h-4 w-4"></i>
+						</a>
+					</div>
+					<div class="ml-3 inline-flex rounded-md shadow">
+						<a
+							href="#"
+							class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-unilever-lightblue hover:bg-opacity-90 transition duration-200"
+						>
+							Learn More
+							<i data-feather="info" class="ml-2 h-4 w-4"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<footer class="bg-gray-800">
+			<div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+				<div class="grid grid-cols-2 gap-8 md:grid-cols-4">
+					<div>
+						<h3
+							class="text-sm font-semibold text-gray-400 tracking-wider uppercase"
+							>Products</h3
+						>
+						<ul class="mt-4 space-y-4">
+							<li
+								><a
+									href="#"
+									class="text-base text-gray-300 hover:text-white"
+									>Food Products</a
+								></li
+							>
+							<li
+								><a
+									href="#"
+									class="text-base text-gray-300 hover:text-white"
+									>Home Care</a
+								></li
+							>
+							<li
+								><a
+									href="#"
+									class="text-base text-gray-300 hover:text-white"
+									>Personal Care</a
+								></li
+							>
+							<li
+								><a
+									href="#"
+									class="text-base text-gray-300 hover:text-white"
+									>View All</a
+								></li
+							>
+						</ul>
+					</div>
+					<div>
+						<h3
+							class="text-sm font-semibold text-gray-400 tracking-wider uppercase"
+							>Company</h3
+						>
+						<ul class="mt-4 space-y-4">
+							<li
+								><a
+									href="#"
+									class="text-base text-gray-300 hover:text-white"
+									>About</a
+								></li
+							>
+							<li
+								><a
+									href="#"
+									class="text-base text-gray-300 hover:text-white"
+									>Blog</a
+								></li
+							>
+							<li
+								><a
+									href="#"
+									class="text-base text-gray-300 hover:text-white"
+									>Careers</a
+								></li
+							>
+							<li
+								><a
+									href="#"
+									class="text-base text-gray-300 hover:text-white"
+									>Partners</a
+								></li
+							>
+						</ul>
+					</div>
+					<div>
+						<h3
+							class="text-sm font-semibold text-gray-400 tracking-wider uppercase"
+							>Legal</h3
+						>
+						<ul class="mt-4 space-y-4">
+							<li
+								><a
+									href="#"
+									class="text-base text-gray-300 hover:text-white"
+									>Privacy</a
+								></li
+							>
+							<li
+								><a
+									href="#"
+									class="text-base text-gray-300 hover:text-white"
+									>Terms</a
+								></li
+							>
+							<li
+								><a
+									href="#"
+									class="text-base text-gray-300 hover:text-white"
+									>Cookie Policy</a
+								></li
+							>
+							<li
+								><a
+									href="#"
+									class="text-base text-gray-300 hover:text-white"
+									>GDPR</a
+								></li
+							>
+						</ul>
+					</div>
+					<div>
+						<h3
+							class="text-sm font-semibold text-gray-400 tracking-wider uppercase"
+							>Connect</h3
+						>
+						<ul class="mt-4 space-y-4">
+							<li
+								><a
+									href="#"
+									class="text-base text-gray-300 hover:text-white"
+									>Contact Us</a
+								></li
+							>
+							<li
+								><a
+									href="#"
+									class="text-base text-gray-300 hover:text-white"
+									>Twitter</a
+								></li
+							>
+							<li
+								><a
+									href="#"
+									class="text-base text-gray-300 hover:text-white"
+									>Facebook</a
+								></li
+							>
+							<li
+								><a
+									href="#"
+									class="text-base text-gray-300 hover:text-white"
+									>Instagram</a
+								></li
+							>
+						</ul>
+					</div>
+				</div>
+				<div class="mt-12 border-t border-gray-700 pt-8">
+					<div class="md:flex md:items-center md:justify-between">
+						<div class="flex space-x-6 md:order-2">
+							<a
+								href="#"
+								class="text-gray-400 hover:text-gray-300"
+							>
+								<i data-feather="facebook" class="h-6 w-6"></i>
+							</a>
+							<a
+								href="#"
+								class="text-gray-400 hover:text-gray-300"
+							>
+								<i data-feather="instagram" class="h-6 w-6"></i>
+							</a>
+							<a
+								href="#"
+								class="text-gray-400 hover:text-gray-300"
+							>
+								<i data-feather="twitter" class="h-6 w-6"></i>
+							</a>
+							<a
+								href="#"
+								class="text-gray-400 hover:text-gray-300"
+							>
+								<i data-feather="linkedin" class="h-6 w-6"></i>
+							</a>
+						</div>
+						<p
+							class="mt-8 text-base text-gray-400 md:mt-0 md:order-1"
+						>
+							&copy; 2025 VeriQPro by Unilever Nigeria. All rights
+							reserved.
+						</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<script>
+			AOS.init({
+				duration: 800,
+				easing: "ease-in-out",
+				once: true,
+			});
+
+			// Mobile menu toggle
+			document.addEventListener("DOMContentLoaded", function () {
+				const mobileMenuButton = document.querySelector(
+					'[aria-controls="mobile-menu"]'
+				);
+				const mobileMenu = document.getElementById("mobile-menu");
+
+				mobileMenuButton.addEventListener("click", function () {
+					const expanded =
+						this.getAttribute("aria-expanded") === "true";
+					this.setAttribute("aria-expanded", !expanded);
+					mobileMenu.classList.toggle("hidden");
+
+					// Toggle menu icon
+					const icon = this.querySelector("i");
+					if (expanded) {
+						feather.replace();
+					} else {
+						icon.setAttribute("data-feather", "x");
+						feather.replace();
+					}
+				});
+
+				feather.replace();
+			});
+		</script>
+	</body>
+</html>
